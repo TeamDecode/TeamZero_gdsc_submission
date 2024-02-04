@@ -4,8 +4,6 @@ import '@fontsource/courgette';
 import '@fontsource/source-sans-pro';
 import './App.css';
 
-
-
 import Breath from './pages/Breath';
 import Projects from './pages/Projects';
 import ErrorPage from './pages/ErrorPage';
