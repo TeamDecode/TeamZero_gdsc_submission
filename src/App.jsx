@@ -24,6 +24,8 @@ import EssayGlobalPollution from './components/Projects/ProjectsList/EssayGlobal
 
 import Navbar from './components/Navbar/Navbarall';
 
+
+
 function App() {
 
   return (
@@ -47,6 +49,9 @@ function App() {
         <Route path='/projects' element={<Projects />} />
 
         <Route path='/projects/essay-global-pollution' element={<EssayGlobalPollution />} />
+
+        
+
 
         <Route path='*' element={<ErrorPage />} />
       </Routes>
