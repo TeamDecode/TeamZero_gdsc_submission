@@ -1,29 +1,31 @@
+// ProfileMenu.js
 import React, { useState } from 'react';
+import './ProfileMenu.css'; // Import CSS file
 
-const Profile = () => {
+const ProfileMenu = () => {
   const [profileData, setProfileData] = useState({
-    firstName: 'Debdutta',
-    lastName: 'Naskar',
-    headline: '',
-    bio: '',
-    profilePicture: null, // This will be replaced with the uploaded image
+    name: 'John Doe',
+    age: 30,
+    email: 'john.doe@example.com',
+    phoneNumber: '123-456-7890',
+    address: '123 Main St, City, Country',
+    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   });
-
   const [editing, setEditing] = useState(false);
-  const [originalData, setOriginalData] = useState(null);
+  const [originalData, setOriginalData] = useState(null); // Store original data for cancellation
 
   const handleEdit = () => {
-    setOriginalData({ ...profileData });
+    setOriginalData({ ...profileData }); // Save original data before editing
     setEditing(true);
   };
 
   const handleSave = () => {
     setEditing(false);
-    // Here you would typically save the data to the backend
+    // Save data to backend or perform any other necessary action
   };
 
   const handleCancel = () => {
-    setProfileData(originalData);
+    setProfileData(originalData); // Revert to original data
     setEditing(false);
   };
 
@@ -35,114 +37,91 @@ const Profile = () => {
   };
 
   const handlePictureChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith('image')) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setProfileData({
-            ...profileData,
-            profilePicture: reader.result
-          });
-        }
-      };
-      reader.readAsDataURL(file);
-    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setProfileData({
+          ...profileData,
+          profilePicture: reader.result
+        });
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
   };
-
-  // Helper function to extract initials
-  const getInitials = (name) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('');
-  };
-
-
-  // Add handleEdit, handleSave, handleCancel, etc. as needed
 
   return (
-    <div className="flex">
-    {/* Sidebar */}
-    <div className="w-64 h-screen bg-gray-800 text-white p-5">
-      <div className="flex items-center space-x-4 p-2 mb-5">
-        {profileData.profilePicture ? (
-          <img src={profileData.profilePicture} alt="Profile" className="rounded-full h-12 w-12 object-cover" />
-        ) : (
-          <div className="rounded-full bg-gray-600 h-12 w-12 flex items-center justify-center uppercase font-bold">
-            {getInitials(profileData.firstName)}
-          </div>
-        )}
-        <div>{`${profileData.firstName} ${profileData.lastName}`}</div>
-      </div>
-      {/* ... rest of your sidebar */}
-    </div>
-
-      {/* Main Content */}
-      <div className="flex-grow p-10 overflow-auto">
-        <h1 className="text-3xl font-semibold mb-6">Public profile</h1>
-        <p className="mb-2">Add information about yourself</p>
-        <div className="space-y-4">
-          <div>
-            <label className="block font-medium">Basics:</label>
-            <input
-              type="text"
-              placeholder="First Name"
-              className="w-full p-2 border rounded mb-2"
-              value={profileData.firstName}
-              onChange={(e) => handleChange(e, 'firstName')}
-              disabled={!editing}
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="w-full p-2 border rounded"
-              value={profileData.lastName}
-              onChange={(e) => handleChange(e, 'lastName')}
-              disabled={!editing}
-            />
-          </div>
-          <div>
-            <label className="block font-medium">Headline</label>
-            <input
-              type="text"
-              placeholder="Add a professional headline like 'Instructor at Udemy' or 'Architect'."
-              className="w-full p-2 border rounded mb-2"
-              value={profileData.headline}
-              onChange={(e) => handleChange(e, 'headline')}
-              disabled={!editing}
-            />
-          </div>
-          <div>
-            <label className="block font-medium">Bio</label>
-            <textarea
-              placeholder="Tell us more about yourself"
-              className="w-full p-2 border rounded"
-              value={profileData.bio}
-              onChange={(e) => handleChange(e, 'bio')}
-              disabled={!editing}
-            />
-          </div>
-          <div>
-          <label className="block font-medium">Photo</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePictureChange}
-            className="block w-full text-sm text-gray-500
-            file:mr-4 file:py-2 file:px-4
-            file:rounded-full file:border-0
-            file:text-sm file:font-semibold
-            file:bg-violet-50 file:text-violet-700
-            hover:file:bg-violet-100"
-          />
+    <>
+    
+    <div className="profile-menu">
+      <h2 className='profile'>Profile Details</h2>
+      <div className="profile-details">
+        <div className="profile-picture">
+          <img src={profileData.profilePicture} alt="Profile" />
+          {editing && (
+            <input type="file" accept="image/*" onChange={handlePictureChange} />
+          )}
         </div>
-          {/* Add more fields as necessary */}
+        <div className="profile-fields">
+          <p>
+            
+           Name: 
+          
+            {editing ? 
+            
+              <input type="text" value={profileData.name} onChange={(e) => handleChange(e, 'name')} className="edit-input" /> : 
+              
+          
+              <input disabled type="text"  value={profileData.name}/> 
+              
+            }
+          </p>
+          <p>
+            Age: 
+            {editing ? 
+              <input type="number" value={profileData.age} onChange={(e) => handleChange(e, 'age')} className="edit-input" /> : 
+              <input disabled type="text"  value={profileData.age}/> 
+            }
+          </p>
+          <p>
+            Email: 
+            {editing ? 
+              <input type="email" value={profileData.email} onChange={(e) => handleChange(e, 'email')} className="edit-input" /> : 
+              <input disabled type="text"  value={profileData.email}/> 
+            }
+          </p>
+          <p>
+            Phone-Number: 
+            {editing ? 
+              <input type="text" value={profileData.phoneNumber} onChange={(e) => handleChange(e, 'phoneNumber')} className="edit-input" /> : 
+              <input disabled type="text"  value={profileData.phoneNumber}/> 
+            }
+          </p>
+          <p>
+            Address: 
+            {editing ? 
+              <input type="text" value={profileData.address} onChange={(e) => handleChange(e, 'address')} className="edit-input" /> : 
+              <input disabled type="text"  value={profileData.address}/> 
+            }
+          </p>
+          <p>
+            Bio: 
+            {editing ? 
+              <textarea value={profileData.bio} onChange={(e) => handleChange(e, 'bio')} className="edit-input" /> : 
+              <input disabled type="text"  value={profileData.bio}/> 
+            }
+          </p>
         </div>
-        {/* Edit/Save button goes here */}
       </div>
-    </div>
+      {editing ? (
+        <div>
+          <button onClick={handleSave} className="save-button">Save</button>
+          <button onClick={handleCancel} className="cancel-button">Cancel</button>
+        </div>
+      ) : (
+        <button onClick={handleEdit} className="edit-button">Edit</button>
+      )}
+    </div></>
   );
 };
 
-export default Profile;
+export default ProfileMenu;

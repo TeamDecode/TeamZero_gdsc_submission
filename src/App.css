@@ -5,9 +5,11 @@
     justify-content: center;
     min-height: 100vh;
     background-color: black ;
-    background: url(n.png)  no-repeat;
+    background: url(n.png) ;
     background-size: cover;
-    background-position: center;
+    position: isolate;
    
+    
+
  
 }

@@ -1,0 +1,116 @@
+/* ProfileMenu.css */
+.profile-menu-container {
+    display: flex;
+     justify-content: center; /* Center horizontally */
+     align-items: center; /* Center vertically */
+     width: 110%;
+     height: 150vh;
+     
+     
+     -webkit-text-fill-color: #ccc;
+     
+     
+     
+    
+   }
+   
+   .profile-menu {
+     padding: 20px;
+     border-radius: 10px;
+    
+     box-shadow: 0px 0px 10px rgba(167, 24, 24, 0.1);
+   
+     border:2px solid rgb(27, 120, 206) ;
+     border-radius: 20px;
+    
+     backdrop-filter: blur(14px);
+   
+     
+   }
+   .edit-input
+   {
+     -webkit-text-fill-color: #19190d;
+   }
+   
+   
+   
+   .profile-details {
+     border: 1px solid #9d0808;
+     border-radius: 10px;
+     padding: 20px;
+   }
+   
+   .profile-picture {
+     margin-right: 20px;
+   }
+   
+   .profile-picture img {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     border: 2px solid #057514;
+   }
+   
+   .profile-fields p {
+     margin-bottom: 15px;
+     font-size: 20px; /* Increase text size */
+   }
+   
+   .profile-fields input,
+   .profile-fields textarea {
+     width: 100%;
+     padding: 10px;
+     margin-top: 5px;
+     border: 1px solid #ab1111;
+     border-radius: 5px;
+   }
+   .edit-button,
+   .save-button,
+   .cancel-button {
+     padding: 8px 16px;
+     margin-top: 10px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+   }
+   .edit-button:hover,
+   .save-button:hover,
+   .cancel-button:hover {
+     opacity: 0.9;
+   }
+   
+   .edit-button {
+     background-color: #007bff;
+     color: rgb(219, 214, 214);
+   }
+   
+   .edit-button:hover {
+     background-color: #0056b3;
+   }
+   
+   .save-button {
+     background-color: #28a745;
+     color: white;
+   }
+   
+   .save-button:hover {
+     background-color: #218838;
+   }
+   
+   .cancel-button {
+     background-color: #dc3545;
+     color: white;
+   }
+   
+   .cancel-button:hover {
+     background-color: #c82333;
+   }
+   .profile
+   {
+     -webkit-text-fill-color: rgb(255, 0, 93);
+     font-size: xx-large;
+     font-style: italic;
+   text-decoration: underline overline;
+   }
+   
