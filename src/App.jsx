@@ -26,7 +26,7 @@ import Navbar from './components/Navbar/Navbarall';
 
 
 
-import Profile from './profile/ProfileMenu'
+import Profile from './components/Profile';
 
 
 
@@ -42,7 +42,9 @@ function App() {
         
         <Route path='/' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
-       <Route path='/profile' elemnt={<Profile/>}/>
+
+        <Route path="/profile" element={<Profile />} />
+
         <Route path='./Mentalhealth/MeantalHealthPages/Anger' element={<Anger />} />
         <Route path='/mental-health/anxiety' element={<Anxiety />} />
         <Route path='/mental-health/envy' element={<Envy />} />
