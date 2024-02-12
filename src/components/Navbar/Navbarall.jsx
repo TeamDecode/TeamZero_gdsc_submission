@@ -47,8 +47,8 @@ const Navbar = () => {
           </Link>
           <div className="flex items-center space-x-4">
             <Link to="/explore" className="px-3 py-2 rounded text-gray-700 text-sm hover:bg-gray-100">Explore</Link>
-            <Link to="/login" className="text-gray-700 text-sm hover:underline">Log In</Link>
-            <Link to="/signup" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">Join for Free</Link>
+            <Link to="/LoginPage" className="text-gray-700 text-sm hover:underline">Log In</Link>
+            <Link to="/SignupPage" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">Join for Free</Link>
             <Link to="/profile" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">profile</Link>
           </div>
         </div>
