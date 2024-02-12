@@ -50,7 +50,7 @@ const SignupPage = () => {
     return (
         
         <section>
-           &nbps;
+          
             <div className="body">
                 <div className="login">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -88,7 +88,7 @@ const SignupPage = () => {
                                 Sign up
                             </button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? <Link to={"/"} className=" text-white font-bold hover:underline">Login here</Link>
+                                Already have an account? <Link to={"/LoginPage"} className=" text-white font-bold hover:underline">Login here</Link>
                             </p>
                         </div>
                     </div>

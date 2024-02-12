@@ -4,12 +4,11 @@ import '@fontsource/courgette';
 import '@fontsource/source-sans-pro';
 import './App.css';
 
-import Breath from './pages/Breath';
 import Projects from './pages/Projects';
-import ErrorPage from './pages/ErrorPage';
+
 
 import LoginPage from './pages/LoginPage';
-
+import Quiz from './components/quiz';
 
 import SignupPage from './pages/SignupPage';
 
@@ -40,19 +39,22 @@ import Profile from './components/Profile';
 function App() {
 
   return (
+    
     <Router>
       <Navbar /> {/* This will render the Navbar on every page */}
+      <body  className='body2'>
       
       
+     
       <Routes>
-
+          
         <Route path='/LoginPage' element={<LoginPage />}/>
 
         
         <Route path='/SignupPage' element={<SignupPage />} />
 
         <Route path="/profile" element={<Profile />} />
-
+        <Route path='/Quiz' element={<Quiz/>} />
         <Route path='/Anger' element={<Anger />} />
         <Route path='/Anxiety' element={<Anxiety />} />
         <Route path='/Envy' element={<Envy />} />
@@ -64,16 +66,9 @@ function App() {
         <Route path='/projects' element={<Projects />} />
 
         <Route path='/EssayGlobalPollution' element={<EssayGlobalPollution />} />
-
-
-        
-        
-
-        
-
-
-        
+ 
       </Routes>
+      </body>
     </Router>
   )
 }

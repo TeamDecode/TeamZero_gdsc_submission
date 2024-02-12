@@ -1,0 +1,13 @@
+.body2
+{
+    color: #f9eeee;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: black ;
+    background: url(n.png)  no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+ 
+}

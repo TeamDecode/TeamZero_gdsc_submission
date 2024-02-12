@@ -33,7 +33,7 @@ const LoginPage = () => {
     };
 
   return (
-    <body>
+    <section>
       <div className="body">
           <div className="login">
           <div className="">
@@ -97,7 +97,7 @@ const LoginPage = () => {
                   </div>
               </form>
                   <p className="mt-4 text-sm font-light text-gray-400">
-                      Haven't created an account yet? <Link to={"/signup"} className=" text-white font-bold hover:underline">Sign Up Here</Link>
+                      Haven't created an account yet? <Link to={"/SignupPage"} className=" text-white font-bold hover:underline">Sign Up Here</Link>
                   </p>
           </div>
 
@@ -105,7 +105,7 @@ const LoginPage = () => {
           </div>
       </div>
        
-       </body>
+       </section>
   )
 }
 
