@@ -34,6 +34,9 @@ import Profile from './components/Profile';
 
 
 
+
+
+
 function App() {
 
   return (
@@ -50,23 +53,26 @@ function App() {
 
         <Route path="/profile" element={<Profile />} />
 
-        <Route path='./Mentalhealth/MeantalHealthPages/Anger' element={<Anger />} />
-        <Route path='/mental-health/anxiety' element={<Anxiety />} />
-        <Route path='/mental-health/envy' element={<Envy />} />
-        <Route path='/mental-health/fear' element={<Fear />} />
-        <Route path='/mental-health/irritation' element={<Irritation />} />
-        <Route path='/mental-health/sadness' element={<Sadness />} />
-        <Route path='/mental-health/worry' element={<Worry />} />
+        <Route path='/Anger' element={<Anger />} />
+        <Route path='/Anxiety' element={<Anxiety />} />
+        <Route path='/Envy' element={<Envy />} />
+        <Route path='/Fear' element={<Fear />} />
+        <Route path='/Irritation' element={<Irritation />} />
+        <Route path='/Sadness' element={<Sadness />} />
+        <Route path='/Worry' element={<Worry />} />
       
         <Route path='/projects' element={<Projects />} />
 
-        <Route path='/projects/essay-global-pollution' element={<EssayGlobalPollution />} />
+        <Route path='/EssayGlobalPollution' element={<EssayGlobalPollution />} />
+
+
+        
         
 
         
 
 
-        <Route path='*' element={<ErrorPage />} />
+        
       </Routes>
     </Router>
   )

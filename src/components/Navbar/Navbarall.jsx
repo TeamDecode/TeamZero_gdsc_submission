@@ -70,9 +70,14 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isMentalHealthDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="./Mentalhealth/MeantalHealthPages/Anger" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anger</Link>
-                    <Link to="./Mentalhealth/MeantalHealthPages/Anxiety" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anxiety</Link>
-                    <Link to="./Mentalhealth/MeantalHealthPages/Sadness" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sadness</Link>
+                    <Link to="/Anger" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anger</Link>
+                    <Link to="/Anxiety" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anxiety</Link>
+                    <Link to="/Envy" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Envy</Link>
+                    <Link to="/Fear" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fear</Link>
+                    <Link to="/Irritation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Irritation</Link>
+                    <Link to="/Sadness" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sadness</Link>
+                    <Link to="/Worry" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Worry</Link>
+                    
                     {/* ... other links ... */}
                   </div>
                 </div>
@@ -89,7 +94,7 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isAdrenalineQuizDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="/adrenaline-quiz/quiz1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 1</Link>
+                    <Link to="Quiz" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz</Link>
                     <Link to="/adrenaline-quiz/quiz2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 2</Link>
                     <Link to="/adrenaline-quiz/quiz3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 3</Link>
                     {/* ... other links ... */}
@@ -108,7 +113,7 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isProjectsDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="/projects/project1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 1</Link>
+                    <Link to="/EssayGlobalPollution" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">EssayGlobalPollution</Link>
                     <Link to="/projects/project2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 2</Link>
                     <Link to="/projects/project3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 3</Link>
                     {/* ... other links ... */}
