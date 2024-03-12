@@ -5,10 +5,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faHippo, faLock } from "@fortawesome/free-solid-svg-icons";
 import "./LoginPage.css"
 
+import { useGoogleLogin } from '@react-oauth/google';
+
+
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [password, setPassword] = useState('');
+
+    const googleLogin = useGoogleLogin({
+        onSuccess: tokenResponse => {
+            console.log(tokenResponse);
+            // Here, you can handle the successful authentication,
+            // such as redirecting the user or saving the session.
+        },
+        onError: () => console.log('Google login failed'),
+        scope: 'email profile', // Adjust according to your needs
+    });
  
     const validateEverything = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -104,6 +117,11 @@ const LoginPage = () => {
           {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid and both the passwords are same!" />}
           </div>
       </div>
+
+      <button onClick={() => googleLogin()} className="google-sign-in-button">
+                Sign in with Google
+            </button>
+            {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid!" />}
        
        </section>
   )
