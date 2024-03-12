@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import "./navbar.css"
 
 
 const Navbar = () => {
@@ -14,6 +15,7 @@ const Navbar = () => {
   const toggleMentalHealthDropdown = () => {
     setIsMentalHealthDropdownOpen(!isMentalHealthDropdownOpen)
   }
+
 
   const toggleAdrenalineQuizDropdown = () => {
     setIsAdrenalineQuizDropdownOpen(!isAdrenalineQuizDropdownOpen)
@@ -35,9 +37,12 @@ const Navbar = () => {
   const toggleDiscussionGroupDropdown = () => {
     setIsDiscussionGroupDropdownOpen(!isDiscussionGroupDropdownOpen);
   };
+  const toggleClassromDropdown = () => {
+    setIsClassromDropdown(!isClassromDropdown);
+  }
 
   return (
-    <div>
+    <div >
       {/* Main Navbar */}
       <nav className="bg-white shadow">
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -46,16 +51,18 @@ const Navbar = () => {
           </Link>
           <div className="flex items-center space-x-4">
             <Link to="/explore" className="px-3 py-2 rounded text-gray-700 text-sm hover:bg-gray-100">Explore</Link>
-            <Link to="/login" className="text-gray-700 text-sm hover:underline">Log In</Link>
-            <Link to="/signup" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">Join for Free</Link>
+            <Link to="/LoginPage" className="text-gray-700 text-sm hover:underline">Log In</Link>
+            <Link to="/SignupPage" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">Join for Free</Link>
+            <Link to="/profile" className="px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">profile</Link>
           </div>
         </div>
       </nav>
+      
 
       {/* My Learning Section */}
-      <div className="bg-gray-800 text-white">
+      <div className="body1">
         <div className="container mx-auto px-6 py-4">
-          <h1 className="text-4xl font-bold">My Learning</h1>
+          <h1 className="text-4xl font-bold text-white">My Learning</h1>
           <div className="flex mt-4 space-x-4 text-lg relative">
             {/* Mental Health Dropdown Button */}
             <div className="relative inline-block text-left">
@@ -67,9 +74,14 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isMentalHealthDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="./Mentalhealth/MeantalHealthPages/Anger" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anger</Link>
-                    <Link to="./Mentalhealth/MeantalHealthPages/Anxiety" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anxiety</Link>
-                    <Link to="./Mentalhealth/MeantalHealthPages/Sadness" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sadness</Link>
+                    <Link to="/Anger" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anger</Link>
+                    <Link to="/Anxiety" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Anxiety</Link>
+                    <Link to="/Envy" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Envy</Link>
+                    <Link to="/Fear" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fear</Link>
+                    <Link to="/Irritation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Irritation</Link>
+                    <Link to="/Sadness" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sadness</Link>
+                    <Link to="/Worry" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Worry</Link>
+                    
                     {/* ... other links ... */}
                   </div>
                 </div>
@@ -86,7 +98,7 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isAdrenalineQuizDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="/adrenaline-quiz/quiz1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 1</Link>
+                    <Link to="Quiz" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz</Link>
                     <Link to="/adrenaline-quiz/quiz2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 2</Link>
                     <Link to="/adrenaline-quiz/quiz3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz 3</Link>
                     {/* ... other links ... */}
@@ -105,7 +117,7 @@ const Navbar = () => {
                 <div className={`origin-top-right absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isProjectsDropdownOpen ? 'block' : 'hidden'}`}>
                   <div className="py-1">
                     {/* These are your dropdown links, add as many as you have topics */}
-                    <Link to="/projects/project1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 1</Link>
+                    <Link to="/EssayGlobalPollution" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">EssayGlobalPollution</Link>
                     <Link to="/projects/project2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 2</Link>
                     <Link to="/projects/project3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Project 3</Link>
                     {/* ... other links ... */}
@@ -183,6 +195,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
     </div>
   )
 }

@@ -1,11 +1,27 @@
 import Popup from "../components/PageAccessories/Popup"
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faHippo, faLock } from "@fortawesome/free-solid-svg-icons";
+import "./LoginPage.css"
+
+import { useGoogleLogin } from '@react-oauth/google';
+
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [password, setPassword] = useState('');
+
+    const googleLogin = useGoogleLogin({
+        onSuccess: tokenResponse => {
+            console.log(tokenResponse);
+            // Here, you can handle the successful authentication,
+            // such as redirecting the user or saving the session.
+        },
+        onError: () => console.log('Google login failed'),
+        scope: 'email profile', // Adjust according to your needs
+    });
  
     const validateEverything = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,21 +46,24 @@ const LoginPage = () => {
     };
 
   return (
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700 pb-7">
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <h2 className="font-title mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-300">
-                  Login to your account
+    <section>
+      <div className="body">
+          <div className="login">
+          <div className="">
+              <h2 className="login-text">
+                  Login To Your account
               </h2>
           </div>
 
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"> {/* paddding */}
               <form className="space-y-6" onSubmit={validateEverything}>
                   <div>
-                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-400">
-                          Email address
+                      <label htmlFor="email" className=" text-xl/ block text-sm font-medium leading-6 ">
+                      <FontAwesomeIcon icon={faEnvelope} /> Email address
                       </label>
+                      
                       <div className="mt-2">
+                      
                           <input
                               id="email"
                               name="email"
@@ -54,18 +73,19 @@ const LoginPage = () => {
                               autoComplete="email"
                               placeholder="Type your Email ID"
                               required
-                                  className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                          />
+                                  className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 italic"
+                          ></input>
                       </div>
                   </div>
 
                   <div>
                       <div className="flex items-center justify-between">
-                          <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-400" >
-                              Password
+                          <label htmlFor="password" className="block text-sm font-medium leading-6 " >
+                          <FontAwesomeIcon icon={faLock} />  Password
                           </label>
                       </div>
                       <div className="mt-2">
+                     
                           <input
                               id="password"
                               name="password"
@@ -75,7 +95,7 @@ const LoginPage = () => {
                               placeholder="Type your Password"
                               autoComplete="current-password"
                               required
-                                  className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                  className=" italic border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           />
                       </div>
                   </div>
@@ -90,13 +110,20 @@ const LoginPage = () => {
                   </div>
               </form>
                   <p className="mt-4 text-sm font-light text-gray-400">
-                      Haven't created an account yet? <Link to={"/signup"} className="font-bold hover:underline">Signup here</Link>
+                      Haven't created an account yet? <Link to={"/SignupPage"} className=" text-white font-bold hover:underline">Sign Up Here</Link>
                   </p>
           </div>
 
           {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid and both the passwords are same!" />}
           </div>
       </div>
+
+      <button onClick={() => googleLogin()} className="google-sign-in-button">
+                Sign in with Google
+            </button>
+            {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid!" />}
+       
+       </section>
   )
 }
 

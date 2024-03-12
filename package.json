@@ -13,12 +13,17 @@
     "@fontsource/barlow": "^5.0.8",
     "@fontsource/courgette": "^5.0.18",
     "@fontsource/source-sans-pro": "^5.0.8",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-oauth/google": "^0.12.1",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.21.3",
-    "react-router-dom": "^6.21.3",
+    "react-router-dom": "^6.22.0",
     "react-share": "^5.0.3"
   },
   "devDependencies": {
