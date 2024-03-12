@@ -16,6 +16,7 @@ const Navbar = () => {
     setIsMentalHealthDropdownOpen(!isMentalHealthDropdownOpen)
   }
 
+
   const toggleAdrenalineQuizDropdown = () => {
     setIsAdrenalineQuizDropdownOpen(!isAdrenalineQuizDropdownOpen)
   }
@@ -36,6 +37,9 @@ const Navbar = () => {
   const toggleDiscussionGroupDropdown = () => {
     setIsDiscussionGroupDropdownOpen(!isDiscussionGroupDropdownOpen);
   };
+  const toggleClassromDropdown = () => {
+    setIsClassromDropdown(!isClassromDropdown);
+  }
 
   return (
     <div >
@@ -191,6 +195,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
     </div>
   )
 }

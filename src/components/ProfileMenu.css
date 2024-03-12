@@ -108,9 +108,19 @@
    }
    .profile
    {
-     -webkit-text-fill-color: rgb(255, 0, 93);
+     -webkit-text-fill-color: rgb(243, 242, 243);
      font-size: xx-large;
      font-style: italic;
-   text-decoration: underline overline;
+   padding-bottom: 5%;
+   
+   font-family: 'Times New Roman', Times, serif;
+   margin-top: 2.5rem; 
+
+line-height: 2rem; 
+font-weight: 700; 
+letter-spacing: -0.025em; 
+line-height: 2.25rem; 
+text-align: center; 
+color: #D1D5DB; 
    }
    

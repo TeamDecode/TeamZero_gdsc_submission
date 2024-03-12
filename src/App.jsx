@@ -4,6 +4,7 @@ import '@fontsource/courgette';
 import '@fontsource/source-sans-pro';
 import './App.css';
 
+
 import Projects from './pages/Projects';
 
 
@@ -69,7 +70,38 @@ function App() {
  
       </Routes>
       </body>
+      <footer>
+      <div className="footer-container">
+        <div className="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Terms of Service</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li>FAQs</li>
+            <li>Shipping</li>
+            <li>Returns</li>
+            <li>Track Order</li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#"> Twitter</a></li>
+            <li><a href="#"> Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
     </Router>
+   
   )
 }
 
