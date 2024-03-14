@@ -70,9 +70,9 @@ const MentalHealthTemplate = ({ type }) => {
                 <div className={styles.center}></div>
             </div>
             <div className='text-gray-200 div-center' style={{
-                top: "35%",
+                top: "45%",
             }}>{t / 60} minute</div>
-            <div id='timer' className={showTimer ? 'text-center bg-slate-700 div-center px-8 py-2 text-xl rounded-md text-slate-300 font-bold' : 'hidden'} style={{
+            <div id='timer' className={showTimer ? 'text-center font-title bg-slate-800 div-center px-8 py-2 text-xl rounded-md text-slate-300 font-bold' : 'hidden'} style={{
                 top: "70%",
             }}>
                 {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}

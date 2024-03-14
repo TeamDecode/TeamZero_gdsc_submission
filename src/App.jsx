@@ -58,7 +58,7 @@ function App() {
 
           <Route path='/projects' element={<Projects />} />
 
-          <Route path='/EssayGlobalPollution' element={<EssayGlobalPollution />} />
+          <Route path='/projects/essay-global-pollution' element={<EssayGlobalPollution />} />
 
         </Routes>
       </body>
