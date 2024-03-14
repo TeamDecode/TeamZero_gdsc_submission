@@ -47,14 +47,14 @@ function App() {
           <Route path='/Quiz' element={<Quiz />} />
 
 
-          <Route path='/breath' element={<Breath />} />
-          <Route path='/Anger' element={<Anger />} />
-          <Route path='/Anxiety' element={<Anxiety />} />
-          <Route path='/Envy' element={<Envy />} />
-          <Route path='/Fear' element={<Fear />} />
-          <Route path='/Irritation' element={<Irritation />} />
-          <Route path='/Sadness' element={<Sadness />} />
-          <Route path='/Worry' element={<Worry />} />
+          <Route path='/health' element={<Breath />} />
+          <Route path='/health/anger' element={<Anger />} />
+          <Route path='/health/anxiety' element={<Anxiety />} />
+          <Route path='/health/envy' element={<Envy />} />
+          <Route path='/health/fear' element={<Fear />} />
+          <Route path='/health/irritation' element={<Irritation />} />
+          <Route path='/health/sadness' element={<Sadness />} />
+          <Route path='/health/worry' element={<Worry />} />
 
           <Route path='/projects' element={<Projects />} />
 
