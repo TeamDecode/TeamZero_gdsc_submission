@@ -2,7 +2,7 @@
 const Footer = () => {
   return (
       <footer className="bg-slate-800 text-slate-200 px-8 py-4 text-sm">
-          <div className="footer-container flex flex-row max-w-7xl gap-12 justify-center list-none">
+          <div className="footer-container flex flex-row max-w-7xl gap-12 justify-around list-none">
               <div className="footer-section">
                   <h3 className="font-title text-lg mb-3">Company</h3>
                   <ul>

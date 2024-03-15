@@ -30,6 +30,7 @@ import Profile from './components/Profile';
 import Home from './pages/Home/Home';
 import Footer from './pages/Footer/Footer';
 import Error from './pages/ErrorPage/Error';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         <Navbar />
         <Routes>
 
-          <Route path='*' element={<Error />} />
+          <Route path='*' element={<ErrorPage />} />
           <Route path='/' element={<Home />} />
           <Route path='/LoginPage' element={<LoginPage />} />
 
