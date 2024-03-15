@@ -28,16 +28,19 @@ import Navbar from './components/Navbar/Navbarall';
 
 import Profile from './components/Profile';
 import Home from './pages/Home/Home';
+import Footer from './pages/Footer/Footer';
+import Error from './pages/ErrorPage/Error';
 
 function App() {
 
   return (
 
     <Router>
-      <Navbar />
-      <body className='body2'>
+      <div className='min-h-full'>
+        <Navbar />
         <Routes>
 
+          <Route path='*' element={<Error />} />
           <Route path='/' element={<Home />} />
           <Route path='/LoginPage' element={<LoginPage />} />
 
@@ -45,7 +48,6 @@ function App() {
 
           <Route path="/profile" element={<Profile />} />
           <Route path='/Quiz' element={<Quiz />} />
-
 
           <Route path='/health' element={<Breath />} />
           <Route path='/health/anger' element={<Anger />} />
@@ -61,37 +63,8 @@ function App() {
           <Route path='/projects/essay-global-pollution' element={<EssayGlobalPollution />} />
 
         </Routes>
-      </body>
-      <footer>
-        <div className="footer-container">
-          <div className="footer-section">
-            <h3>Company</h3>
-            <ul>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Terms of Service</li>
-              <li>Privacy Policy</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h3>Customer Service</h3>
-            <ul>
-              <li>FAQs</li>
-              <li>Shipping</li>
-              <li>Returns</li>
-              <li>Track Order</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h3>Connect With Us</h3>
-            <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#"> Twitter</a></li>
-              <li><a href="#"> Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+        <Footer />
+      </div>
     </Router>
 
   )
