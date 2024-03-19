@@ -1,52 +1,44 @@
-.body
-{
-    color: #f9eeee;
-    display: flex;
-    justify-content: center;
-    
+.body {
+  color: #f9eeee;
+  display: flex;
+  justify-content: center;
 
-   width: 100vh;
-
-    
-   
-    
+  width: 100vh;
 }
-.login
-{
-     position: relative;
-    padding-bottom: 1.7rem; 
-    border-radius: 20px; 
-    border-width: 1px; 
-    border-color: #e2e6ed; 
-    width: 100%; 
-    background: transparent;
-    backdrop-filter: blur(10px);
-   
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
-    
-    @media (min-width: 500px ) { 
-      max-width: 28rem; 
-      max-height: 33rem;
-     }
-    @media (min-width: 768px) { 
-      margin-top: 0; 
-     }
-    
-    @media (min-width: 1280px) { 
-      padding: 2; 
-     }
-}
-.login-text
-{
-    font-style: normal;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 2.5rem; 
-font-size: 1.5rem;
-line-height: 2rem; 
-font-weight: 700; 
-letter-spacing: -0.025em; 
-line-height: 2.25rem; 
-text-align: center; 
-color: #D1D5DB; 
+.login {
+  position: relative;
+  padding-bottom: 1.7rem;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: #e2e6ed;
+  width: 100%;
+  background: transparent;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  @media (min-width: 500px) {
+    max-width: 28rem;
+    max-height: 33rem;
+  }
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 2;
+  }
+}
+.login-text {
+  font-style: normal;
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 2.25rem;
+  text-align: center;
+  color: #d1d5db;
 }
