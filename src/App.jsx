@@ -3,6 +3,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import '@fontsource/barlow';
 import '@fontsource/courgette';
 import '@fontsource/source-sans-pro';
+
 import './App.css';
 import Projects from './pages/Projects';
 import LoginPage from './pages/LoginPage';
@@ -25,11 +26,15 @@ function App() {
     <GoogleOAuthProvider clientId="90070660946-ilqn28d8taeu2md03729kcs0k0b22397.apps.googleusercontent.com">
       <Router>
         <Navbar /> {/* This will render the Navbar on every page */}
+        <Routes> 
+           <Route path="/profile" element={<Profile />} />
+        </Routes>
         <div className='body2'> {/* Changed from <body> to <div> for valid HTML structure */}
           <Routes>
+         
             <Route path='/LoginPage' element={<LoginPage />} />
             <Route path='/SignupPage' element={<SignupPage />} />
-            <Route path="/profile" element={<Profile />} />
+            
             <Route path='/Quiz' element={<Quiz />} />
             <Route path='/Anger' element={<Anger />} />
             <Route path='/Anxiety' element={<Anxiety />} />

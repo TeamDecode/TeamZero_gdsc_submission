@@ -1,126 +1,114 @@
-/* ProfileMenu.css */
-.profile-menu-container {
-    display: flex;
-     justify-content: center; /* Center horizontally */
-     align-items: center; /* Center vertically */
-     width: 110%;
-     height: 150vh;
-     
-     
-     -webkit-text-fill-color: #ccc;
-     
-     
-     
-    
-   }
-   
-   .profile-menu {
-     padding: 20px;
-     border-radius: 10px;
-    
-     box-shadow: 0px 0px 10px rgba(167, 24, 24, 0.1);
-   
-     border:2px solid rgb(27, 120, 206) ;
-     border-radius: 20px;
-    
-     backdrop-filter: blur(14px);
-   
-     
-   }
-   .edit-input
-   {
-     -webkit-text-fill-color: #19190d;
-   }
-   
-   
-   
-   .profile-details {
-     border: 1px solid #9d0808;
-     border-radius: 10px;
-     padding: 20px;
-   }
-   
-   .profile-picture {
-     margin-right: 20px;
-   }
-   
-   .profile-picture img {
-     width: 100px;
-     height: 100px;
-     border-radius: 50%;
-     border: 2px solid #057514;
-   }
-   
-   .profile-fields p {
-     margin-bottom: 15px;
-     font-size: 20px; /* Increase text size */
-   }
-   
-   .profile-fields input,
-   .profile-fields textarea {
-     width: 100%;
-     padding: 10px;
-     margin-top: 5px;
-     border: 1px solid #ab1111;
-     border-radius: 5px;
-   }
-   .edit-button,
-   .save-button,
-   .cancel-button {
-     padding: 8px 16px;
-     margin-top: 10px;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
-     font-size: 16px;
-   }
-   .edit-button:hover,
-   .save-button:hover,
-   .cancel-button:hover {
-     opacity: 0.9;
-   }
-   
-   .edit-button {
-     background-color: #007bff;
-     color: rgb(219, 214, 214);
-   }
-   
-   .edit-button:hover {
-     background-color: #0056b3;
-   }
-   
-   .save-button {
-     background-color: #28a745;
-     color: white;
-   }
-   
-   .save-button:hover {
-     background-color: #218838;
-   }
-   
-   .cancel-button {
-     background-color: #dc3545;
-     color: white;
-   }
-   
-   .cancel-button:hover {
-     background-color: #c82333;
-   }
-   .profile
-   {
-     -webkit-text-fill-color: rgb(243, 242, 243);
-     font-size: xx-large;
-     font-style: italic;
-   padding-bottom: 5%;
-   
-   font-family: 'Times New Roman', Times, serif;
-   margin-top: 2.5rem; 
+.vertical-navbar-container {
+  display: flex;
+}
 
-line-height: 2rem; 
-font-weight: 700; 
-letter-spacing: -0.025em; 
-line-height: 2.25rem; 
-text-align: center; 
-color: #D1D5DB; 
-   }
-   
+.vertical-navbar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+}
+
+.vertical-navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vertical-navbar ul li {
+  padding: 10px;
+}
+
+.vertical-navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.vertical-navbar ul li a:hover {
+  background-color: #555;
+}
+
+.form-content {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border:10px solid #ccc;
+  
+}
+.profile-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form h2 {
+  margin-top: 0;
+
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-form input[type="text"],
+.profile-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.profile-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.profile-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+.progress-bar-container
+{
+  width:100%;
+  height:100px;
+ 
+  border-radius:5px;
+  overflow:hidden;
+  position: fixed;
+  top:40px;
+ left :35%;
+  transform: translateX(-50%);
+  z-index: 999; 
+}@keyframes progressAnimation {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+.quiz-box
+{
+  border-radius:50px;
+  justify-content:center;
+  align-items:center;
+  text-align:center; 
+  display:flex;
+  flex-direction:column;
+  margin:20px;
+
+}
+.quiz-list
+{
+ 
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  border-spacing:10 px;
+}

@@ -1,127 +1,194 @@
-// ProfileMenu.js
-import React, { useState } from 'react';
-import './ProfileMenu.css'; // Import CSS file
-
-const ProfileMenu = () => {
-  const [profileData, setProfileData] = useState({
-    name: 'John Doe',
-    age: 30,
-    email: 'john.doe@example.com',
-    phoneNumber: '123-456-7890',
-    address: '123 Main St, City, Country',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  });
-  const [editing, setEditing] = useState(false);
-  const [originalData, setOriginalData] = useState(null); // Store original data for cancellation
-
-  const handleEdit = () => {
-    setOriginalData({ ...profileData }); // Save original data before editing
-    setEditing(true);
-  };
-
-  const handleSave = () => {
-    setEditing(false);
-    // Save data to backend or perform any other necessary action
-  };
-
-  const handleCancel = () => {
-    setProfileData(originalData); // Revert to original data
-    setEditing(false);
-  };
-
-  const handleChange = (e, field) => {
-    setProfileData({
-      ...profileData,
-      [field]: e.target.value
-    });
-  };
-
-  const handlePictureChange = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setProfileData({
-          ...profileData,
-          profilePicture: reader.result
-        });
-      }
+import React from 'react';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import './ProfileMenu.css';
+class VerticalNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedItem: null,
+      selectedImage: null
     };
-    reader.readAsDataURL(e.target.files[0]);
-  };
+  }
 
-  return (
-    <>
-    
-    <div className="profile-menu">
-      <h2 className='profile'>Profile Details</h2>
-      <div className="profile-details">
-        <div className="profile-picture">
-          <img src={profileData.profilePicture} alt="Profile" />
-          {editing && (
-            <input type="file" accept="image/*" onChange={handlePictureChange} />
-          )}
+  handleItemClick = (item) => {
+    this.setState({ selectedItem: item });
+  }
+
+  handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.setState({ selectedImage: reader.result });
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ selectedImage: null });
+    }
+  }
+
+  renderContent = () => {
+    switch (this.state.selectedItem) {
+      case 'profile':
+        return <ProfileForm />;
+      case 'photo':
+        return <PhotoForm handleImageChange={this.handleImageChange} selectedImage={this.state.selectedImage} />;
+      case 'account_security':
+        return <AccountSecurityForm />;
+      case 'notifications':
+        return <NotificationsForm />;
+      case 'attendance_record':
+        return <AttendanceRecordForm />;
+      case 'quiz_leaderboard':
+        return <QuizLeaderboardForm />;
+      default:
+        return null;
+    }
+  }
+
+  render() {
+    return (
+      <div className="vertical-navbar-container">
+        <div className="vertical-navbar">
+          <ul>
+            <li><a href="#" onClick={() => this.handleItemClick('profile')}>Profile</a></li>
+            <li><a href="#" onClick={() => this.handleItemClick('photo')}>Photo</a></li>
+            <li><a href="#" onClick={() => this.handleItemClick('account_security')}>Account Security</a></li>
+            <li><a href="#" onClick={() => this.handleItemClick('notifications')}>Notifications</a></li>
+            <li><a href="#" onClick={() => this.handleItemClick('attendance_record')}>Attendance Record</a></li>
+            <li><a href="#" onClick={() => this.handleItemClick('quiz_leaderboard')}>Quiz Leaderboard</a></li>
+          </ul>
         </div>
-        <div className="profile-fields">
-          <p>
-            
-           Name: 
-          
-            {editing ? 
-            
-              <input type="text" value={profileData.name} onChange={(e) => handleChange(e, 'name')} className="edit-input" /> : 
-              
-          
-              <input disabled type="text"  value={profileData.name}/> 
-              
-            }
-          </p>
-          <p>
-            Age: 
-            {editing ? 
-              <input type="number" value={profileData.age} onChange={(e) => handleChange(e, 'age')} className="edit-input" /> : 
-              <input disabled type="text"  value={profileData.age}/> 
-            }
-          </p>
-          <p>
-            Email: 
-            {editing ? 
-              <input type="email" value={profileData.email} onChange={(e) => handleChange(e, 'email')} className="edit-input" /> : 
-              <input disabled type="text"  value={profileData.email}/> 
-            }
-          </p>
-          <p>
-            Phone-Number: 
-            {editing ? 
-              <input type="text" value={profileData.phoneNumber} onChange={(e) => handleChange(e, 'phoneNumber')} className="edit-input" /> : 
-              <input disabled type="text"  value={profileData.phoneNumber}/> 
-            }
-          </p>
-          <p>
-            Address: 
-            {editing ? 
-              <input type="text" value={profileData.address} onChange={(e) => handleChange(e, 'address')} className="edit-input" /> : 
-              <input disabled type="text"  value={profileData.address}/> 
-            }
-          </p>
-          <p>
-            Bio: 
-            {editing ? 
-              <textarea value={profileData.bio} onChange={(e) => handleChange(e, 'bio')} className="edit-input" /> : 
-              <input disabled type="text"  value={profileData.bio}/> 
-            }
-          </p>
+        <div className="form-content">
+          {this.renderContent()}
         </div>
       </div>
-      {editing ? (
-        <div>
-          <button onClick={handleSave} className="save-button">Save</button>
-          <button onClick={handleCancel} className="cancel-button">Cancel</button>
+    );
+  }
+}
+
+const ProfileForm = () => {
+  return (
+    <div className="profile-form">
+      <h2>Account Details</h2>
+      <form>
+        <div className="profile-form">
+          <h2>Profile Form</h2>
+          <form>
+            <label>Name:</label>
+            <input type="text" name="name" />
+
+            <label>Class:</label>
+            <input type="text" name="class" />
+
+            <label>Age:</label>
+            <input type="text" name="age" />
+
+            <label>Address:</label>
+            <input type="text" name="address" />
+
+            <label>Phone Number:</label>
+            <input type="text" name="phone" />
+
+            <label>Email:</label>
+            <input type="text" name="email" />
+
+            <label>Bio:</label>
+            <textarea name="bio"></textarea>
+
+            <button type="submit">Save</button>
+          </form>
         </div>
-      ) : (
-        <button onClick={handleEdit} className="edit-button">Edit</button>
-      )}
-    </div></>
+      </form>
+    </div>
+  );
+}
+
+const PhotoForm = ({ handleImageChange, selectedImage }) => {
+  return (
+    <div className="photo-form">
+      <h2>Photo Form</h2>
+      <form>
+        <div>
+          <label>Image Preview:</label>
+          <div className="image-preview">
+            {selectedImage && <img src={selectedImage} alt="Preview" style={{ maxWidth: '200px', maxHeight: '200px' }} />}
+            {!selectedImage && <div>No image selected</div>}
+          </div>
+        </div>
+
+        <div>
+          <label>Insert Image:</label>
+          <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
+        </div>
+
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+  );
+}
+
+const AccountSecurityForm = () => {
+  return <div>Account Security Form</div>;
+}
+
+const NotificationsForm = () => {
+  return <div>Notifications Form</div>;
+}
+
+const AttendanceRecordForm = () => {
+  return <div>Attendance Record Form</div>;
+}
+
+const QuizLeaderboardForm = () =>  {
+  // Sample data for past quizzes
+  const pastQuizzes = [
+    { id: 1, date: '2023-01-01', score: 80 },
+    { id: 2, date: '2023-02-01', score: 90 },
+    { id: 3, date: '2023-03-01', score: 35 }, // Example of a score below 40%
+    { id: 4, date: '2023-04-01', score: null }, // Example of no participation
+  ];
+
+  // Calculate total percentage
+  const totalPercentage = pastQuizzes.filter(quiz => quiz.score !== null).reduce((acc, quiz) => acc + quiz.score, 0) / (pastQuizzes.length * 100) * 100;
+
+  return (
+    <div className="quiz-activity">
+
+         <CircularProgressbar className='progress-bar-container'
+           value={totalPercentage.toFixed(2)}
+           text={totalPercentage.toFixed(2)}
+           strokeWidth={10} // Adjust the strokeWidth if needed
+           radius={1} // Adjust the radius to make the progress bar smaller
+           styles={{
+             path: { stroke: `rgba(62, 152, 199, ${totalPercentage / 100} )`,
+                   animation: 'progressAnimation 1s linear forwards'},
+             text: { fill: '#000000', fontSize: '16px' },
+           }}
+         />
+      <h2>Quiz Leaderboard</h2>
+      <div>
+        <h3>Past Quizzes</h3>
+        <div className="quiz-list">
+          {pastQuizzes.map(quiz => (
+            <div key={quiz.id} className="quiz-box" style={{ backgroundColor: quiz.score !== null ? (quiz.score > 40 ? '#5cd65c' : '#ff4d4d') : '#b3b3b3' }}>
+              <p  font-weight: bold >Quiz taken on {quiz.date}</p>
+              {quiz.score !== null ? (
+                <p>Score: {quiz.score}%</p>
+              ) : (
+                <p>No participation</p>
+              )}
+            </div>
+          ))}
+        </div>
+        
+
+        <p>Total Percentage: {totalPercentage.toFixed(2)}%</p>
+      </div>
+    </div>
   );
 };
 
-export default ProfileMenu;
+
+export default VerticalNavbar;

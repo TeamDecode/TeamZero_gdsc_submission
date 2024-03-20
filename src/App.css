@@ -3,7 +3,7 @@
     color: #f9eeee;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+   
     background-color: black ;
     background: url(n.png) ;
     background-size: cover;
@@ -16,9 +16,9 @@
 /* Footer.css */
 
 footer {
-    background-color: #333;
+    background-color: #1d1a1a;
     color: #fff;
-    padding: 20px 0;
+    padding: 20px ;
   }
   
   .footer-container {
