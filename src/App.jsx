@@ -22,17 +22,13 @@ import Profile from './components/Profile';
 
 function App() {
   return (
-    // Correctly wrap the entire Router component with GoogleOAuthProvider
     <GoogleOAuthProvider clientId="90070660946-ilqn28d8taeu2md03729kcs0k0b22397.apps.googleusercontent.com">
       <Router>
-        <Navbar /> {/* This will render the Navbar on every page */}
-        <Routes> 
-           <Route path="/profile" element={<Profile />} />
-        </Routes>
-        <div className='body2'> {/* Changed from <body> to <div> for valid HTML structure */}
+        <Navbar />
+        <div className='body2'>
           <Routes>
-         
-            <Route path='/LoginPage' element={<LoginPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path='/LoginPage' element={<LoginPage />} />
             <Route path='/SignupPage' element={<SignupPage />} />
             
             <Route path='/Quiz' element={<Quiz />} />
@@ -45,6 +41,8 @@ function App() {
             <Route path='/Worry' element={<Worry />} />
             <Route path='/projects' element={<Projects />} />
             <Route path='/EssayGlobalPollution' element={<EssayGlobalPollution />} />
+
+            {/* Your routes here */}
           </Routes>
         </div>
         <footer>
@@ -76,7 +74,8 @@ function App() {
             </ul>
           </div>
         </div>
-      </footer>
+          {/* Footer content */}
+        </footer>
       </Router>
     </GoogleOAuthProvider>
   );
