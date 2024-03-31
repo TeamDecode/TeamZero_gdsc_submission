@@ -1,5 +1,7 @@
 .vertical-navbar-container {
   display: flex;
+  width: 100%;
+  color: black;
 }
 
 .vertical-navbar {
@@ -30,6 +32,7 @@
   flex: 1;
   background-color: #f9f9f9;
   padding: 20px;
+
   border:10px solid #ccc;
   
 }
@@ -76,12 +79,12 @@
 .progress-bar-container
 {
   width:100%;
-  height:100px;
+  height:70px;
  
   border-radius:5px;
   overflow:hidden;
-  position: fixed;
-  top:40px;
+  position:absolute;
+  top:220px;
  left :35%;
   transform: translateX(-50%);
   z-index: 999; 

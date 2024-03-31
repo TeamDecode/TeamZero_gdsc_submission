@@ -1,21 +1,17 @@
 
-.body2 {
-  color: #f9eeee;
-  display: flex; /* Only if you need to use Flexbox inside .body2 */
-  flex-direction: column; /* Only if you need to use Flexbox inside .body2 */
-  justify-content: center; /* Only if you need to use Flexbox inside .body2 */
-  flex-grow: 1; /* This will make sure it takes up all available space */
-  background-color: black;
-  background: url(n.png) no-repeat center center;
-  background-size: cover;
+.body2
+{
+    color: #f9eeee;
+    display: flex;
+    justify-content: center;
+   
+    background-color: black ;
+    background: url(n.png) ;
+    background-size: cover;
+    position: isolate;
+
 }
 
-
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
 /* Footer.css */
 
@@ -81,4 +77,3 @@ footer {
   .social-media-icon:hover {
     transform: scale(1.2); 
   }
-  

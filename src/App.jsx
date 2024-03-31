@@ -7,7 +7,7 @@ import '@fontsource/source-sans-pro';
 import './App.css';
 import Projects from './pages/Projects';
 import LoginPage from './pages/LoginPage';
-import Quiz from './components/quiz';
+import Quiz from './components/quiz/Quiz';
 import SignupPage from './pages/SignupPage';
 import Anxiety from './components/MentalHealth/MentalHealthPages/Anxiety';
 import Anger from './components/MentalHealth/MentalHealthPages/Anger';
