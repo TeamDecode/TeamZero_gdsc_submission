@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faHippo, faLock } from "@fortawesome/free-solid-svg-icons";
 import "./LoginPage.css"
-
+import GoogleButton from 'react-google-button'
 import { useGoogleLogin } from '@react-oauth/google';
 
 
@@ -73,7 +73,7 @@ const LoginPage = () => {
                               autoComplete="email"
                               placeholder="Type your Email ID"
                               required
-                                  className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 italic"
+                                  className="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 italic"
                           ></input>
                       </div>
                   </div>
@@ -95,12 +95,12 @@ const LoginPage = () => {
                               placeholder="Type your Password"
                               autoComplete="current-password"
                               required
-                                  className=" italic border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                  className=" italic border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           />
                       </div>
                   </div>
 
-
+                  
                   <div>
                       <button
                           type="submit"
@@ -108,20 +108,22 @@ const LoginPage = () => {
                           Sign in
                       </button>
                   </div>
+                  <GoogleButton onClick={() => googleLogin()} className="google-sign-in-button">
+                Sign in with Google
+            </GoogleButton>
+            {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid!" />}
               </form>
-                  <p className="mt-4 text-sm font-light text-gray-400">
+                  <p className="mt-4 text-sm font-light text-black">
                       Haven't created an account yet? <Link to={"/SignupPage"} className=" text-white font-bold hover:underline">Sign Up Here</Link>
                   </p>
           </div>
 
           {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid and both the passwords are same!" />}
           </div>
+          
       </div>
 
-      <button onClick={() => googleLogin()} className="google-sign-in-button">
-                Sign in with Google
-            </button>
-            {showPopup && <Popup alertTitle="Invalid" alertText="Check if the email ID is valid!" />}
+      
        
        </section>
   )

@@ -50,3 +50,8 @@ text-align: center;
 color: #D1D5DB; 
 
 }
+.google-sign-in-button
+{
+left :60px;
+ position: relative;
+}
